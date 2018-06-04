@@ -3,7 +3,7 @@
 
 var console = new ConsoleLog();
 
-for (i = 0; i < 20; i++) {
-  console.log(i.toString());
+for (i = 0; i < 50; i++) {
+  console.log(i);
   $.sleep(10)
 }

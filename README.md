@@ -1,5 +1,5 @@
 # extendscript-console
-Creating a console that can be used outside of ESTK
+Implementing console.log functionality that can be used outside of ESTK
 
 Written and tested with OSX High Sierra and Photoshop 19.1.3. Not compatible with Windows (sorry).
 
@@ -13,8 +13,8 @@ The ConsoleLog object checks whether ESTK is running or not upon initialization.
 
 ### If ESTK is not running:
 
-  console.log() writes to a hidden text file in your home directory (~/.jsx-console). The unix tail command can then be used (from an OSX Terminal) to monitor this file, making the terminal act as the javascript console. Tail command:
+  console.log() opens a socket connection to a port on localhost and sends the messages there. To listen on that port from an OSX Terminal use:
 
-  $ touch ~/.jsx-console && tail -F ~/.jsx-console
+  $ nc -lvk <port>
 
-  touch is called first to avoid "file not found" errors
+  This will listen on localhost:<port>

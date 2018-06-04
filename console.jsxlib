@@ -1,21 +1,18 @@
 function ConsoleLog() {
     //To view log from OSX terminal, execute:
-    //$ touch ~/.jsx-console && tail -F ~/.jsx-console
-    this.file = new File("~/.jsx-console");
-    this.file.lineFeed = "Unix"; //Necessary for OSX tail command to work properly
-    if (this.file.exists){
-            this.file.remove();
-         }
+    //$ nc -lvk <port> (listens on localhost:<port>)
+    this.socket = new Socket();
     this.estkIsRunning = BridgeTalk.isRunning ('estoolkit');
-
+    this.hostPort = "127.0.0.1:8000";
     this.log = function(logMessage){
             if (this.estkIsRunning){
                $.writeln(logMessage);
             }
             else{
-              this.file.open("a+");
-              this.file.writeln(logMessage);
-              this.file.close();
+                if (this.socket.open(this.hostPort)){
+                  this.socket.write (logMessage + "\n");
+                  this.socket.close();
+                }
             }
          }
     }
