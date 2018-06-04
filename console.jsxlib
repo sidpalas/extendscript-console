@@ -1,0 +1,21 @@
+function ConsoleLog() {
+    //To view log from OSX terminal, execute:
+    //$ touch ~/.jsx-console && tail -F ~/.jsx-console
+    this.file = new File("~/.jsx-console");
+    this.file.lineFeed = "Unix"; //Necessary for OSX tail command to work properly
+    if (this.file.exists){
+            this.file.remove();
+         }
+    this.estkIsRunning = BridgeTalk.isRunning ('estoolkit');
+
+    this.log = function(logMessage){
+            if (this.estkIsRunning){
+               $.writeln(logMessage);
+            }
+            else{
+              this.file.open("a+");
+              this.file.writeln(logMessage);
+              this.file.close();
+            }
+         }
+    }
