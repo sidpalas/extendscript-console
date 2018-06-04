@@ -13,7 +13,7 @@ The ConsoleLog object checks whether ESTK is running or not upon initialization.
 
 ### If ESTK is not running:
 
-  console.log() writes to a hidden text file in your home directory (~/.jsx-console). The tail command can then be used to monitor this file, making the terminal act as the javascript console. Tail command:
+  console.log() writes to a hidden text file in your home directory (~/.jsx-console). The unix tail command can then be used (from an OSX Terminal) to monitor this file, making the terminal act as the javascript console. Tail command:
 
   $ touch ~/.jsx-console && tail -F ~/.jsx-console
 
