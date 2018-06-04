@@ -1,7 +1,7 @@
 # extendscript-console
 Implementing console.log functionality that can be used outside of ESTK
 
-Written and tested with OSX High Sierra and Photoshop 19.1.3. Not compatible with Windows (sorry).
+Written and tested with OSX High Sierra and Photoshop 19.1.3. To use with windows, you will need to use a different method for listening to the message port.
 
 Example usage can be found within main.jsx.
 
