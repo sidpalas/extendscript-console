@@ -4,15 +4,16 @@ function ConsoleLog() {
     this.socket = new Socket();
     this.estkIsRunning = BridgeTalk.isRunning ('estoolkit');
     this.hostPort = "127.0.0.1:8000";
-    this.log = function(logMessage){
-            if (this.estkIsRunning){
-               $.writeln(logMessage);
-            }
-            else{
-                if (this.socket.open(this.hostPort)){
-                  this.socket.write (logMessage + "\n");
-                  this.socket.close();
-                }
-            }
-         }
     }
+
+ConsoleLog.prototype.log = function(logMessage){
+    if (this.estkIsRunning){
+       $.writeln(logMessage);
+    }
+    else{
+        if (this.socket.open(this.hostPort)){
+          this.socket.write (logMessage + "\n");
+          this.socket.close();
+        }
+    }
+  };
